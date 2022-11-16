@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(47, 16, 77);
+}
+
+h2 {
+    text-align: center;
+    color: #0ca0c8;
+    text-shadow: 1px 1px #45c493;
+    margin-top: .55rem;
+}
+
+.btn {
+    background-color: #0ca0c8;
+    padding: .55rem 2rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+.memory-game {
+    width: 50%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    perspective: 1000px;
+    padding-top: .55rem;   
+}
+.memory-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    border: 1px solid rgb(248, 64, 208);
+    border-radius: 5px;
+    background: rgb(61, 27, 95);
+    transform: scale(1);
+    transition: transform .4s ease;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.memory-card:active {
+    transform: scale(.95);
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    backface-visibility: hidden;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+
+/* responsividade */
+@media screen and (max-width: 560px) {
+    .memory-game {
+        width: 90%;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media screen and (max-width: 1024px) {
+    .memory-game {
+        width: 90%;
+    }
+}
